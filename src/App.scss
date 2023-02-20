@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
+
+$btn-bg-primary: hsl(231, 69%, 60%);
+$btn-bg-secondary: hsl(0, 94%, 66%);
+
+// - Grayish Blue: hsl(229, 8%, 60%)
+// - Very Dark Blue: hsl(229, 31%, 21%)
+
+$primary-txt: hsl(229, 8%, 60%);
+$secondary-txt: hsl(229, 31%, 21%);
+
+@mixin desktop-sm {
+  @media all and (max-width: 1340px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media all and (max-width: 990px) {
+    @content;
+  }
+}
+
+html {
+  font-size: 16px;
+  font-family: "Rubik", sans-serif;
+  color: $primary-txt;
+
+  @include desktop-sm() {
+    font-size: 13px;
+  }
+
+  @include tablet {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+// .section {
+//   padding: 0 10.625rem;
+// }
+
+.footer {
+  background-color: $btn-bg-primary;
+  padding-top: 4.5rem;
+
+  &__header {
+    text-align: center;
+    color: #fff;
+    padding: 0 35vw;
+    .subtitle {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.3rem;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      // margin: 0;
+      margin-top: 3rem;
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  &__main {
+    margin-bottom: 4.5rem;
+    text-align: center;
+    padding: 0 35vw;
+
+    .form {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+
+      @include desktop-sm() {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
+    .input {
+      padding: 19px 1rem;
+      width: calc(68% - 2 * 1rem);
+      border-radius: 8px;
+      border: none;
+      z-index: 10;
+
+      @include desktop-sm() {
+        width: 100%;
+      }
+
+      &.error {
+        position: relative;
+        border: $btn-bg-secondary 2px solid;
+
+        &:active {
+          border-color: $btn-bg-secondary;
+        }
+
+        & + .error-message {
+          // position: relative;
+          position: absolute;
+          display: block;
+          // z-index: 999;
+          // content: "Whoops! Makes sure it's an email!";
+          bottom: calc(-2rem);
+          padding-top: 9px;
+          padding-bottom: 9px;
+          border: $btn-bg-secondary 2px solid;
+
+          left: 0;
+          // width: 100%;
+          width: calc(68%);
+          border-radius: 0 0 8px 8px;
+          // height: 50px;
+          color: #fff;
+          font-size: 13px;
+          background-color: $btn-bg-secondary;
+        }
+
+        &::before {
+          z-index: 99;
+          background-image: url("./assets/images/icon-error.svg");
+          height: 13px;
+          width: 13px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .error-message {
+      display: none;
+    }
+
+    .btn {
+      background-color: $btn-bg-secondary;
+      color: #fff;
+      padding: 19px 2rem;
+      border-radius: 8px;
+      border: none;
+      // box-shadow: 1px 3px 5px rgb(146, 146, 146);
+    }
+  }
+  &__footer {
+    padding: 2rem 10.625rem;
+    background-color: $secondary-txt;
+
+    .footer-nav {
+      width: 100%;
+      display: flex;
+      // justify-content: space-between;
+      align-items: center;
+      justify-content: flex-start;
+      // padding-right: auto;
+      .logo-wrapper {
+        position: relative;
+        height: 24px;
+        width: 150px;
+        .logo {
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          // object-fit: s;
+          // fill: red;
+        }
+      }
+      .navigation {
+        display: flex;
+        justify-content: flex-start;
+        list-style-type: none;
+        gap: 2.75rem;
+        padding: 0;
+        margin-left: 3.5rem;
+        &__item {
+          &__link {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 13px;
+            transition: all 300ms;
+
+            &:hover {
+              color: $btn-bg-secondary;
+            }
+          }
+        }
+
+        &--sns {
+          margin-left: auto;
+          .sns-icon {
+            position: relative;
+            height: 13px;
+            width: 13px;
+            .icon {
+              position: relative;
+              // position: absolute;
+              height: 100%;
+              width: 100%;
+              top: 0;
+              left: 0;
+
+              fill: #fff;
+
+              // stroke: red;
+            }
+            &:hover {
+              .icon {
+                fill: $btn-bg-secondary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

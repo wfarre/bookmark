@@ -1,0 +1,139 @@
+@use "../../../App.scss" as *;
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding: 0 12vw;
+  padding-right: 6.25vw;
+  padding-bottom: 100px;
+  margin-top: 40px;
+  text-align: left;
+  margin-bottom: 90px;
+  &__image {
+    position: relative;
+    width: 580px;
+    height: 420px;
+
+    @include tablet {
+      width: 100%;
+      height: auto;
+    }
+    .image {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   width: 515px;
+    //   height: 350px;
+    //   background-color: $btn-bg-primary;
+    //   right: 0;
+    //   bottom: 0;
+    //   border-radius: 45% 0 0 45%;
+    //   z-index: -1;
+    // }
+  }
+
+  &__main {
+    padding-top: 72px;
+    width: 470px;
+    @include tablet {
+      text-align: center;
+    }
+    .title {
+      margin-top: 0;
+      font-size: 2.25rem;
+      font-weight: 500;
+      color: $secondary-txt;
+    }
+  }
+
+  .footer {
+    margin-top: 2.25rem;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    background-color: transparent;
+    @include tablet {
+      justify-content: center;
+    }
+  }
+
+  .btn {
+    // padding: 1rem 1.5rem;
+    padding: calc(1rem - 2px) calc(1.5rem - 2px);
+
+    border: none;
+    box-shadow: 1px 3px 5px rgb(146, 146, 146);
+    font-size: 13px;
+    border-radius: 8px;
+    font-family: "Rubik", sans-serif;
+    font-weight: 500;
+    transition: all 300ms;
+    &--blue {
+      color: #fff;
+      background-color: $btn-bg-primary;
+      border: 2px $btn-bg-primary solid;
+      padding: calc(1rem - 2px) calc(1.5rem - 2px);
+      // border: 2px $btn-bg-primary solid;
+
+      &:hover {
+        cursor: pointer;
+        border: 2px $btn-bg-primary solid;
+        background-color: #fff;
+        color: $btn-bg-primary;
+      }
+    }
+    &--white {
+      color: $secondary-txt;
+      background-color: rgb(247, 247, 247);
+      border: 2px rgb(247, 247, 247) solid;
+      &:hover {
+        cursor: pointer;
+        border: 2px $secondary-txt solid;
+        background-color: #fff;
+        // color: $btn-b;
+      }
+    }
+    &:active {
+      transform: translate(1px, 3px);
+      box-shadow: 0px 0 0;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 515px;
+    height: 350px;
+    background-color: $btn-bg-primary;
+    right: 0;
+    bottom: 0;
+    border-radius: 45% 0 0 45%;
+    z-index: -1;
+  }
+
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 515px;
+      height: 350px;
+      background-color: $btn-bg-primary;
+      right: 0;
+      top: 0;
+      border-radius: 45% 0 0 45%;
+      z-index: -1;
+    }
+  }
+}

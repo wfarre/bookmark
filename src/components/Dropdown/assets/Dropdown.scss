@@ -1,0 +1,69 @@
+@use "../../../App.scss" as *;
+
+.dropdown {
+  //   padding: 1.5rem 0;
+  //   border-top: 1px solid $primary-txt;
+  border-bottom: 1px solid $primary-txt;
+  &__header {
+    display: flex;
+    // width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 1.5rem;
+    .question {
+      color: $secondary-txt;
+      font-weight: 400;
+      margin-top: 1.75rem;
+      margin-bottom: 1.25rem;
+      transition: all 300ms;
+    }
+    &:hover {
+      cursor: pointer;
+
+      .question {
+        color: $btn-bg-secondary;
+      }
+    }
+
+    .icon-wrapper {
+      position: relative;
+      width: 18px;
+      height: 12px;
+      .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        stroke: #5267df;
+        transform: rotateZ(0deg);
+        transition: all 300ms;
+      }
+    }
+  }
+
+  &__main {
+    display: none;
+    transform: scaleY(0);
+    transition: all 300ms;
+    transform-origin: top center;
+  }
+
+  &.open {
+    // background-color: blue;
+    .icon {
+      stroke: $btn-bg-secondary;
+      transform: rotateZ(180deg);
+    }
+
+    .dropdown__main {
+      display: block;
+      transform: scaleY(1);
+      // height: ;
+    }
+  }
+}
+
+.dropdown:first-child {
+  border-top: 1px solid $primary-txt;
+}

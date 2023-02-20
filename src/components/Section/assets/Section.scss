@@ -1,0 +1,154 @@
+@use "../../../App.scss" as *;
+
+.section {
+  position: relative;
+  //   margin-left: 500px;
+  padding: 0 12vw;
+  &__header {
+    text-align: center;
+    padding: 0 19.4vw;
+    margin-bottom: 30px;
+    .title {
+      color: $secondary-txt;
+      margin-bottom: 2.25rem;
+      margin-top: 0;
+    }
+
+    .description {
+      margin: 0;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-bottom: 70px;
+    margin-top: 40px;
+    .link {
+      position: relative;
+      text-decoration: none;
+      color: $primary-txt;
+      padding: 30px 40px;
+      width: 100%;
+      transition: all 300ms;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: $primary-txt;
+      }
+      &.active {
+        color: $secondary-txt;
+        font-weight: 500;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 4px;
+          bottom: 0;
+          left: 0;
+          background-color: $btn-bg-secondary;
+        }
+      }
+      &:hover {
+        color: $btn-bg-secondary;
+      }
+
+      //   &:active {
+      //     content: "";
+      //     position: absolute;
+      //     width: 100%;
+      //     height: 1px;
+      //     bottom: 0;
+      //     left: 0;
+      //     background-color: red;
+      //   }
+    }
+  }
+
+  .carousel {
+    width: 100%;
+  }
+  .viewport {
+    display: flex;
+    overflow-x: auto;
+    display: flex;
+
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &--download {
+    margin-top: 160px;
+    .container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      gap: 2rem;
+
+      @include tablet {
+        flex-direction: column;
+        // flex-wrap: wrap;
+        align-items: center;
+      }
+    }
+  }
+
+  &--features {
+    padding-bottom: 90px;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 515px;
+      height: 350px;
+      background-color: $btn-bg-primary;
+      left: 0;
+      bottom: 0;
+      border-radius: 0 45% 45% 0;
+      z-index: -1;
+    }
+  }
+  &--faq {
+    margin-top: 160px;
+    margin-bottom: 150px;
+    .section__content {
+      padding: 0 19.4rem;
+
+      @include desktop-sm {
+        padding: 0 10rem;
+      }
+    }
+
+    .section__footer {
+      text-align: center;
+    }
+
+    .container {
+      margin-bottom: 3.5rem;
+    }
+
+    .btn {
+      padding: 1rem 1.5rem;
+      border: none;
+      // box-shadow: 1px 3px 5px rgb(146, 146, 146);
+      font-size: 13px;
+      border-radius: 8px;
+      font-family: "Rubik", sans-serif;
+      font-weight: 500;
+      text-decoration: none;
+      &--blue {
+        color: #fff;
+        background-color: $btn-bg-primary;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
