@@ -21,6 +21,19 @@ $secondary-txt: hsl(229, 31%, 21%);
   }
 }
 
+@mixin mobile {
+  @media all and (max-width: 375px) {
+    @content;
+  }
+}
+
+// @mixin padding-section($top, $bottom, $lr: 12vw){
+//   padding-top: $top;
+//   padding-bottom: $bottom;
+//   padding-left: $lr;
+//   padding-right: $lr;
+// }
+
 html {
   font-size: 16px;
   font-family: "Rubik", sans-serif;
@@ -33,10 +46,24 @@ html {
   @include tablet {
     font-size: 16px;
   }
+
+  @include mobile {
+    font-size: 12px;
+  }
 }
 
 body {
   margin: 0;
+}
+
+@mixin padding-lr {
+  padding-left: 12vw;
+  padding-right: 12vw;
+
+  @include tablet {
+    padding-left: 9.6vw;
+    padding-right: 9.6vw;
+  }
 }
 
 // .section {
@@ -51,6 +78,10 @@ body {
     text-align: center;
     color: #fff;
     padding: 0 35vw;
+    @include tablet {
+      padding: 0;
+      @include padding-lr();
+    }
     .subtitle {
       font-size: 13px;
       text-transform: uppercase;
@@ -70,6 +101,10 @@ body {
     margin-bottom: 4.5rem;
     text-align: center;
     padding: 0 35vw;
+    @include tablet() {
+      padding: 0;
+      @include padding-lr();
+    }
 
     .form {
       position: relative;
@@ -83,16 +118,24 @@ body {
       }
     }
 
+    .input-wrapper {
+      position: relative;
+      width: 68%;
+      @include desktop-sm() {
+        margin-bottom: 2.5rem;
+        width: 100%;
+      }
+      @include mobile() {
+        width: 100%;
+      }
+    }
+
     .input {
       padding: 19px 1rem;
-      width: calc(68% - 2 * 1rem);
+      width: calc(100% - 2 * 1rem);
       border-radius: 8px;
       border: none;
       z-index: 10;
-
-      @include desktop-sm() {
-        width: 100%;
-      }
 
       &.error {
         position: relative;
@@ -115,7 +158,8 @@ body {
 
           left: 0;
           // width: 100%;
-          width: calc(68%);
+          // width: calc(68%);
+          width: 100%;
           border-radius: 0 0 8px 8px;
           // height: 50px;
           color: #fff;
@@ -144,10 +188,15 @@ body {
       border-radius: 8px;
       border: none;
       // box-shadow: 1px 3px 5px rgb(146, 146, 146);
+      @include mobile() {
+        width: 100%;
+      }
     }
   }
   &__footer {
     padding: 2rem 10.625rem;
+    @include padding-lr;
+
     background-color: $secondary-txt;
 
     .footer-nav {
@@ -157,6 +206,11 @@ body {
       align-items: center;
       justify-content: flex-start;
       // padding-right: auto;
+
+      @include mobile() {
+        flex-direction: column;
+        align-items: center;
+      }
       .logo-wrapper {
         position: relative;
         height: 24px;
@@ -178,6 +232,11 @@ body {
         gap: 2.75rem;
         padding: 0;
         margin-left: 3.5rem;
+
+        @include mobile() {
+          flex-direction: column;
+          align-items: center;
+        }
         &__item {
           &__link {
             color: #fff;
@@ -195,6 +254,14 @@ body {
 
         &--sns {
           margin-left: auto;
+          display: flex;
+          flex-direction: row;
+
+          @include mobile {
+            text-align: center;
+            margin-left: 0;
+          }
+
           .sns-icon {
             position: relative;
             height: 13px;

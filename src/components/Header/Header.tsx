@@ -12,7 +12,7 @@ const Header = (props: Props) => {
         <Bgdot />
       </div> */}
       <div className="header__image">
-        <HeroImage />
+        {/* <HeroImage className="image" /> */}
       </div>
 
       <div className="header__main">

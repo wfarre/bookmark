@@ -70,14 +70,25 @@ const faqs = [
 function App() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleChange = (e: any) => {
     const input: string = e.target.value;
     setEmail(input);
-    if (checkEmailIsValid(input)) {
-      setError("");
+    if (isSubmitted) {
+      if (checkEmailIsValid(input)) {
+        setError("");
+      }
+      if (!checkEmailIsValid(input)) {
+        setError("error");
+      }
     }
-    if (!checkEmailIsValid(input)) {
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    if (!checkEmailIsValid(email)) {
       setError("error");
     }
   };
@@ -108,18 +119,21 @@ function App() {
           <h2 className="title">Stay up-to-date with that we're doing</h2>
         </div>
         <div className="footer__main">
-          <form className="form" action="">
-            <input
-              className={"input " + error}
-              id="input"
-              type="text"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={handleChange}
-            />
-            <span className="error-message">
-              Whoops, make sure it's an email!
-            </span>
+          <form className="form" action="" onSubmit={handleSubmit}>
+            <div className="input-wrapper">
+              <input
+                className={"input " + error}
+                id="input"
+                type="text"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={handleChange}
+              />
+              <span className="error-message">
+                Whoops, make sure it's an email!
+              </span>
+            </div>
+
             <button className="btn btn--secondary" type="submit">
               contact us
             </button>

@@ -6,6 +6,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 3.5rem 12vw;
+  @include padding-lr;
   &__logo {
     position: relative;
     height: 1.625rem;
@@ -24,6 +25,10 @@
     column-gap: 46px;
     list-style-type: none;
     padding: 0;
+
+    @include mobile {
+      display: none;
+    }
 
     &__item {
       &__link {

@@ -11,7 +11,7 @@ type Props = {
 const Slide = (props: Props) => {
   return (
     <div className="slide" id={props.id}>
-      <div className="slide__image">{props.image}</div>
+      <div className="slide__image">{/* {props.image} */}</div>
       <div className="slide__main">
         <h3 className="slide__header">
           {/* <h3 className="title"> */}
