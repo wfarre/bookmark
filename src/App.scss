@@ -128,24 +128,36 @@ body {
       @include mobile() {
         width: 100%;
       }
-    }
 
-    .input {
-      padding: 19px 1rem;
-      width: calc(100% - 2 * 1rem);
-      border-radius: 8px;
-      border: none;
-      z-index: 10;
+      .error-icon {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-60%);
+        width: 16px;
+        height: 16px;
+        // display: none;
+        visibility: hidden;
+      }
+
+      // .error {
+      //   & + .error-icon {
+      //     display: block;
+      //   }
+      // }
 
       &.error {
         position: relative;
-        border: $btn-bg-secondary 2px solid;
+
+        .input {
+          border: $btn-bg-secondary 2px solid;
+        }
 
         &:active {
           border-color: $btn-bg-secondary;
         }
 
-        & + .error-message {
+        & > .error-message {
           // position: relative;
           position: absolute;
           display: block;
@@ -154,7 +166,9 @@ body {
           bottom: calc(-2rem);
           padding-top: 9px;
           padding-bottom: 9px;
-          border: $btn-bg-secondary 2px solid;
+          // border: $btn-bg-secondary 2px solid;
+          padding-left: 2px;
+          padding-right: 2px;
 
           left: 0;
           // width: 100%;
@@ -174,7 +188,20 @@ body {
           width: 13px;
           object-fit: contain;
         }
+
+        & > .error-icon {
+          // display: block;
+          visibility: visible;
+        }
       }
+    }
+
+    .input {
+      padding: 19px 1rem;
+      width: calc(100% - 2 * 1rem);
+      border-radius: 8px;
+      border: none;
+      z-index: 10;
     }
 
     .error-message {
@@ -184,12 +211,21 @@ body {
     .btn {
       background-color: $btn-bg-secondary;
       color: #fff;
-      padding: 19px 2rem;
+      padding: calc(19px - 2px) calc(2rem - 2px);
       border-radius: 8px;
       border: none;
       // box-shadow: 1px 3px 5px rgb(146, 146, 146);
+      border: 2px $btn-bg-secondary solid;
+
       @include mobile() {
         width: 100%;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: #fff;
+        color: $btn-bg-secondary;
+        border: 2px $btn-bg-secondary solid;
       }
     }
   }
@@ -207,7 +243,7 @@ body {
       justify-content: flex-start;
       // padding-right: auto;
 
-      @include mobile() {
+      @include tablet() {
         flex-direction: column;
         align-items: center;
       }
@@ -231,11 +267,14 @@ body {
         list-style-type: none;
         gap: 2.75rem;
         padding: 0;
+
         margin-left: 3.5rem;
 
-        @include mobile() {
+        @include tablet() {
           flex-direction: column;
           align-items: center;
+          margin-left: 0;
+          margin-top: 40px;
         }
         &__item {
           &__link {
@@ -257,7 +296,7 @@ body {
           display: flex;
           flex-direction: row;
 
-          @include mobile {
+          @include tablet {
             text-align: center;
             margin-left: 0;
           }

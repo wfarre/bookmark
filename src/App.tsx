@@ -25,6 +25,7 @@ import { ReactComponent as LogoBookmard } from "./assets/images/logo-bookmark-fo
 import IconFacebook2 from "./assets/images/icon-facebook.svg";
 import FacebookIcon from "./components/Footer/assets/FacebookIcon";
 import TwitterIcon from "./components/Footer/assets/TwitterIcon";
+import { ReactComponent as ErrorIcon } from "./assets/images/icon-error.svg";
 
 const cards = [
   {
@@ -120,9 +121,9 @@ function App() {
         </div>
         <div className="footer__main">
           <form className="form" action="" onSubmit={handleSubmit}>
-            <div className="input-wrapper">
+            <div className={"input-wrapper " + error}>
               <input
-                className={"input " + error}
+                className={"input "}
                 id="input"
                 type="text"
                 placeholder="Enter your email address"
@@ -132,6 +133,9 @@ function App() {
               <span className="error-message">
                 Whoops, make sure it's an email!
               </span>
+              <div className="error-icon">
+                <ErrorIcon className="icon" />
+              </div>
             </div>
 
             <button className="btn btn--secondary" type="submit">
