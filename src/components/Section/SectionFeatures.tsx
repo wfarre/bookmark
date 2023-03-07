@@ -3,7 +3,6 @@ import Slide from "../Slide/Slide";
 import { ReactComponent as ImageFeatures } from "./assets/images/illustration-features-tab-1.svg";
 import "./assets/Section.scss";
 import { useState } from "react";
-import { log } from "console";
 type Props = {};
 
 const slides = [

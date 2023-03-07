@@ -1,4 +1,3 @@
-import React from "react";
 import Dropdown from "../Dropdown/Dropdown";
 
 const faqs = [
@@ -46,7 +45,7 @@ const SectionFaq = (props: Props) => {
       </div>
 
       <footer className="section__footer">
-        <a className="btn btn--blue" href="#">
+        <a className="btn btn--blue" href="#app">
           More info
         </a>
       </footer>

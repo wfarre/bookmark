@@ -1,4 +1,4 @@
-@use "../../App.scss" as *;
+@use "../../../styles/App.scss" as *;
 
 .slide {
   position: relative;
@@ -8,7 +8,6 @@
   height: 21.75rem;
   flex-shrink: 0;
   scroll-snap-align: center;
-  // scroll-margin-top: 4rem;
   @include tablet {
     flex-direction: column;
     align-items: center;
@@ -26,22 +25,11 @@
     border-radius: 8px;
     width: 48%;
     height: 100%;
-    // background-color: rgb(247, 247, 247);
-    // background-image: url("../../assets/images/illustration-features-tab-1.svg");
     background-repeat: no-repeat;
     background-size: contain;
-    // .image {
-    //   position: absolute;
-    //   height: 100%;
-    //   width: 100%;
-    //   left: 0;
-    //   top: 0;
-    //   object-fit: cover;
-    // }
 
     @include tablet {
       width: 100%;
-      // width: 84vw;
       height: 53vw;
       z-index: 10;
     }
@@ -58,11 +46,9 @@
   }
   &__header {
     margin-bottom: 2rem;
-    // .title {
     margin: 0;
     font-size: 1.5rem;
     color: $secondary-txt;
-    // }
   }
 
   &__footer {
@@ -71,15 +57,18 @@
 
   .btn {
     padding: 1rem 1.5rem;
-    // height: 48px;
+
     border: none;
-    box-shadow: 1px 3px 5px rgb(146, 146, 146);
-    font-size: 13px;
     border-radius: 8px;
+    box-shadow: 1px 3px 5px rgb(146, 146, 146);
+
     font-family: "Rubik", sans-serif;
+    font-size: 13px;
     font-weight: 500;
     text-decoration: none;
+
     z-index: 10;
+
     &--blue {
       color: #fff;
       background-color: $btn-bg-primary;
@@ -103,13 +92,13 @@
   .slide:nth-child(#{$i}) {
     .slide__image {
       @if $i == 1 {
-        background-image: url("../../assets/images/illustration-features-tab-1.svg");
+        background-image: url("./images/illustration-features-tab-1.svg");
       }
       @if $i == 2 {
-        background-image: url("../../assets/images/illustration-features-tab-2.svg");
+        background-image: url("./images/illustration-features-tab-2.svg");
       }
       @if $i == 3 {
-        background-image: url("../../assets/images/illustration-features-tab-3.svg");
+        background-image: url("./images/illustration-features-tab-3.svg");
       }
     }
   }

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import "./Navbar.scss";
+import { useState } from "react";
+import "./assets/Navbar.scss";
 
-import { ReactComponent as BookmarkLogo } from "../../assets/images/logo-bookmark.svg";
-import { ReactComponent as CloseButton } from "../../assets/images/icon-close.svg";
-import { ReactComponent as MenuButton } from "../../assets/images/icon-hamburger.svg";
-import { ReactComponent as BookmarkLogoWhite } from "../../assets/images/logo-bookmark-white.svg";
+import { ReactComponent as BookmarkLogo } from "./assets/images/logo-bookmark.svg";
+import { ReactComponent as CloseButton } from "./assets/images/icon-close.svg";
+import { ReactComponent as MenuButton } from "./assets/images/icon-hamburger.svg";
+import { ReactComponent as BookmarkLogoWhite } from "./assets/images/logo-bookmark-white.svg";
 
 type Props = {};
 
@@ -25,22 +25,22 @@ const Navbar = (props: Props) => {
         </div>
         <ul className={isOpen ? "nav open" : "nav"}>
           <li className="nav__item">
-            <a className="nav__item__link" href="#">
+            <a className="nav__item__link" href="#app">
               Features
             </a>
           </li>
           <li className="nav__item">
-            <a className="nav__item__link" href="#">
+            <a className="nav__item__link" href="#app">
               Pricing
             </a>
           </li>
           <li className="nav__item">
-            <a className="nav__item__link" href="#">
+            <a className="nav__item__link" href="#app">
               Contact
             </a>
           </li>
           <li className="nav__item">
-            <a className="nav__item__link login" href="#">
+            <a className="nav__item__link login" href="#app">
               Login
             </a>
           </li>

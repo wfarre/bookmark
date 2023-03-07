@@ -1,5 +1,5 @@
-import React, { ReactComponentElement } from "react";
-import "./Card.scss";
+import React from "react";
+import "./assets/Card.scss";
 
 type Props = { title: string; version: string; url: React.FunctionComponent };
 

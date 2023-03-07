@@ -1,74 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap");
-
-$btn-bg-primary: hsl(231, 69%, 60%);
-$btn-bg-secondary: hsl(0, 94%, 66%);
-
-// - Grayish Blue: hsl(229, 8%, 60%)
-// - Very Dark Blue: hsl(229, 31%, 21%)
-
-$primary-txt: hsl(229, 8%, 60%);
-$secondary-txt: hsl(229, 31%, 21%);
-
-@mixin desktop-sm {
-  @media all and (max-width: 1340px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media all and (max-width: 990px) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media all and (max-width: 375px) {
-    @content;
-  }
-}
-
-// @mixin padding-section($top, $bottom, $lr: 12vw){
-//   padding-top: $top;
-//   padding-bottom: $bottom;
-//   padding-left: $lr;
-//   padding-right: $lr;
-// }
-
-html {
-  font-size: 16px;
-  font-family: "Rubik", sans-serif;
-  color: $primary-txt;
-
-  @include desktop-sm() {
-    font-size: 13px;
-  }
-
-  @include tablet {
-    font-size: 16px;
-  }
-
-  @include mobile {
-    font-size: 12px;
-  }
-}
-
-body {
-  margin: 0;
-}
-
-@mixin padding-lr {
-  padding-left: 12vw;
-  padding-right: 12vw;
-
-  @include tablet {
-    padding-left: 9.6vw;
-    padding-right: 9.6vw;
-  }
-}
-
-// .section {
-//   padding: 0 10.625rem;
-// }
+@use "../../../styles/App.scss" as *;
 
 .footer {
   background-color: $btn-bg-primary;
@@ -89,18 +19,17 @@ body {
     }
 
     .title {
-      font-size: 1.5rem;
-      font-weight: 500;
-      // margin: 0;
       margin-top: 3rem;
       margin-bottom: 2.25rem;
+      font-size: 1.5rem;
+      font-weight: 500;
     }
   }
 
   &__main {
     margin-bottom: 4.5rem;
-    text-align: center;
     padding: 0 35vw;
+    text-align: center;
     @include tablet() {
       padding: 0;
       @include padding-lr();
@@ -122,8 +51,8 @@ body {
       position: relative;
       width: 68%;
       @include desktop-sm() {
-        margin-bottom: 2.5rem;
         width: 100%;
+        margin-bottom: 2.5rem;
       }
       @include mobile() {
         width: 100%;
@@ -131,20 +60,13 @@ body {
 
       .error-icon {
         position: absolute;
+        width: 16px;
+        height: 16px;
         right: 1rem;
         top: 50%;
         transform: translateY(-60%);
-        width: 16px;
-        height: 16px;
-        // display: none;
         visibility: hidden;
       }
-
-      // .error {
-      //   & + .error-icon {
-      //     display: block;
-      //   }
-      // }
 
       &.error {
         position: relative;
@@ -158,39 +80,28 @@ body {
         }
 
         & > .error-message {
-          // position: relative;
           position: absolute;
           display: block;
-          // z-index: 999;
-          // content: "Whoops! Makes sure it's an email!";
-          bottom: calc(-2rem);
-          padding-top: 9px;
-          padding-bottom: 9px;
-          // border: $btn-bg-secondary 2px solid;
-          padding-left: 2px;
-          padding-right: 2px;
-
-          left: 0;
-          // width: 100%;
-          // width: calc(68%);
           width: 100%;
+          padding: 9px 2px;
+          bottom: -2rem;
+          left: 0;
+
           border-radius: 0 0 8px 8px;
-          // height: 50px;
-          color: #fff;
           font-size: 13px;
+          color: #fff;
           background-color: $btn-bg-secondary;
         }
 
         &::before {
-          z-index: 99;
-          background-image: url("./assets/images/icon-error.svg");
           height: 13px;
           width: 13px;
+          background-image: url("./images/icon-error.svg");
           object-fit: contain;
+          z-index: 99;
         }
 
         & > .error-icon {
-          // display: block;
           visibility: visible;
         }
       }
@@ -210,12 +121,11 @@ body {
 
     .btn {
       background-color: $btn-bg-secondary;
-      color: #fff;
       padding: calc(19px - 2px) calc(2rem - 2px);
+      color: #fff;
       border-radius: 8px;
-      border: none;
-      // box-shadow: 1px 3px 5px rgb(146, 146, 146);
       border: 2px $btn-bg-secondary solid;
+      transition: all 300ms;
 
       @include mobile() {
         width: 100%;
@@ -225,23 +135,19 @@ body {
         cursor: pointer;
         background-color: #fff;
         color: $btn-bg-secondary;
-        border: 2px $btn-bg-secondary solid;
       }
     }
   }
   &__footer {
     padding: 2rem 10.625rem;
     @include padding-lr;
-
     background-color: $secondary-txt;
 
     .footer-nav {
       width: 100%;
       display: flex;
-      // justify-content: space-between;
       align-items: center;
       justify-content: flex-start;
-      // padding-right: auto;
 
       @include tablet() {
         flex-direction: column;
@@ -257,19 +163,15 @@ body {
           width: 100%;
           top: 0;
           left: 0;
-          // object-fit: s;
-          // fill: red;
         }
       }
       .navigation {
         display: flex;
         justify-content: flex-start;
-        list-style-type: none;
         gap: 2.75rem;
         padding: 0;
-
         margin-left: 3.5rem;
-
+        list-style-type: none;
         @include tablet() {
           flex-direction: column;
           align-items: center;
@@ -307,15 +209,11 @@ body {
             width: 13px;
             .icon {
               position: relative;
-              // position: absolute;
               height: 100%;
               width: 100%;
               top: 0;
               left: 0;
-
               fill: #fff;
-
-              // stroke: red;
             }
             &:hover {
               .icon {

@@ -1,10 +1,9 @@
-import React from "react";
 import Card from "../Card/Card";
 
-import { ReactComponent as LogoChrome } from "../../assets/images/logo-chrome.svg";
-import { ReactComponent as LogoFirefox } from "../../assets/images/logo-firefox.svg";
+import { ReactComponent as LogoChrome } from "./assets/images/logo-chrome.svg";
+import { ReactComponent as LogoFirefox } from "./assets/images/logo-firefox.svg";
 
-import { ReactComponent as LogoOpera } from "../../assets/images/logo-opera.svg";
+import { ReactComponent as LogoOpera } from "./assets/images/logo-opera.svg";
 
 const cards = [
   {

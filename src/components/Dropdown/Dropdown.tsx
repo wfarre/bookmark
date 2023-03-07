@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { ReactComponent as IconChecvron } from "./assets/icon-arrow.svg";
+import { useState } from "react";
 import "./assets/Dropdown.scss";
 
 type Props = { question: string; answer: string };
@@ -12,7 +11,6 @@ const Dropdown = (props: Props) => {
       <div className="dropdown__header" onClick={() => setIsOpen(!isOpen)}>
         <h3 className="question">{props.question}</h3>
         <div className="icon-wrapper">
-          {/* <IconChecvron className="icon" /> */}
           <svg
             className="icon"
             xmlns="http://www.w3.org/2000/svg"
